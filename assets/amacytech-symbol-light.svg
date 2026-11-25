@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 104" width="196" height="104" role="img" aria-labelledby="title">
+  <title id="title">AmacyTech Services</title>
+  <path fill="#ffffff" fill-rule="evenodd" d="
+    M44.25 12 H76.5 C91 12 99.25 21.2 99.25 35.2
+    V81 C99.25 95.2 90.6 103.75 76.5 103.75 H44.25
+    V89 H0 V67 H33.35 V47.5 H0 V25.25 H44.25 Z
+    M55.55 47.5 V67 H69.25 V47.5 Z"/>
+  <path fill="#0cc0df" fill-rule="evenodd" d="
+    M155.75 0 H123.5 C109.2 0 100.75 9.5 100.75 23.6
+    V68.9 C100.75 83 109.4 92 123.5 92 H155.75
+    V78 H196 V55.9 H162.8 V36.3 H196 V14 H155.75 Z
+    M126.65 36.3 V55.9 H140.55 V36.3 Z"/>
+</svg>
