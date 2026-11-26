@@ -31,7 +31,10 @@ document.querySelectorAll('[data-service]').forEach(link => link.addEventListene
   wave.setAttribute('aria-hidden', 'true');
   link.append(wave);
   const ripple = wave.animate(
-    [{ clipPath: 'circle(0% at center)' }, { clipPath: 'circle(72% at center)' }],
+    [
+      { transform: 'translate(-50%, -50%) scale(0)' },
+      { transform: 'translate(-50%, -50%) scale(1)' }
+    ],
     { duration: 240, easing: 'ease-out', fill: 'forwards' }
   );
   bookingRipple = ripple;
