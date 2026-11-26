@@ -16,8 +16,31 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && !mobileNav.hidden) { closeMenu(); menuButton.focus(); }
 });
 const serviceSelect = document.querySelector('#service');
-document.querySelectorAll('[data-service]').forEach(link => link.addEventListener('click', () => {
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let bookingRipple;
+document.querySelectorAll('[data-service]').forEach(link => link.addEventListener('click', event => {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   serviceSelect.value = link.dataset.service;
+  bookingRipple?.cancel();
+  if (reducedMotion.matches || !link.animate) return;
+
+  event.preventDefault();
+  const startUrl = location.href;
+  const wave = document.createElement('i');
+  wave.className = 'booking-wave';
+  wave.setAttribute('aria-hidden', 'true');
+  link.append(wave);
+  const ripple = wave.animate(
+    [{ clipPath: 'circle(0% at center)' }, { clipPath: 'circle(72% at center)' }],
+    { duration: 240, easing: 'ease-out', fill: 'forwards' }
+  );
+  bookingRipple = ripple;
+  ripple.oncancel = () => wave.remove();
+  ripple.onfinish = () => {
+    wave.remove();
+    bookingRipple = undefined;
+    if (location.href === startUrl) location.assign(link.href);
+  };
 }));
 const form = document.querySelector('#enquiry-form');
 function enquiryMessage() {
